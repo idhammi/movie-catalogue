@@ -1,0 +1,206 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="name_movies">Nama Film</string>
+    <string name="lorem">lorem ipsum dolor sit amet</string>
+    <string name="director">Director</string>
+    <string name="screenplay">Screenplay</string>
+    <string name="language">Original Language</string>
+    <string name="runtime">Runtime</string>
+    <string name="cast">Top Billed Cast</string>
+
+    <string-array name="movie_name">
+        <item>Avengers: Infinity War</item>
+        <item>Spider-Man: Into the Spider-Verse</item>
+        <item>Aquaman</item>
+        <item>Bird Box</item>
+        <item>Venom</item>
+        <item>Bohemian Rhapsody</item>
+        <item>Mortal Engines</item>
+        <item>A Star Is Born</item>
+        <item>Creed II</item>
+        <item>Bumblebee</item>
+    </string-array>
+
+    <string-array name="movie_description">
+        <item>As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</item>
+        <item>Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson "Kingpin" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.</item>
+        <item>Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm\'s half-human, half-Atlantean brother and true heir to the throne.</item>
+        <item>Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.</item>
+        <item>Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.</item>
+        <item>Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock \'n\' roll band Queen in 1970. Hit songs become instant classics. When Mercury\'s increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.</item>
+        <item>Many thousands of years in the future, Earth\’s cities roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the wastelands who will change the course of his life forever.</item>
+        <item>Seasoned musician Jackson Maine discovers — and falls in love with — struggling artist Ally. She has just about given up on her dream to make it big as a singer — until Jack coaxes her into the spotlight. But even as Ally\'s career takes off, the personal side of their relationship is breaking down, as Jack fights an ongoing battle with his own internal demons.</item>
+        <item>Between personal obligations and training for his next big fight against an opponent with ties to his family\'s past, Adonis Creed is up against the challenge of his life.</item>
+        <item>On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken. When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.</item>
+    </string-array>
+
+    <array name="movie_photo">
+        <item>@drawable/poster_avengerinfinity</item>
+        <item>@drawable/poster_spiderman</item>
+        <item>@drawable/poster_aquaman</item>
+        <item>@drawable/poster_birdbox</item>
+        <item>@drawable/poster_venom</item>
+        <item>@drawable/poster_bohemian</item>
+        <item>@drawable/poster_mortalengine</item>
+        <item>@drawable/poster_a_star</item>
+        <item>@drawable/poster_creed</item>
+        <item>@drawable/poster_bumblebee</item>
+    </array>
+
+    <string-array name="movie_year">
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+        <item>2018</item>
+    </string-array>
+
+    <string-array name="movie_rating">
+        <item>83</item>
+        <item>84</item>
+        <item>68</item>
+        <item>69</item>
+        <item>66</item>
+        <item>80</item>
+        <item>61</item>
+        <item>75</item>
+        <item>68</item>
+        <item>65</item>
+    </string-array>
+
+    <string-array name="movie_director">
+        <item>Joe Russo &amp; Anthony Russo</item>
+        <item>Rodney Rothman</item>
+        <item>James Wan</item>
+        <item>Susanne Bier</item>
+        <item>Ruben Fleischer</item>
+        <item>Bryan Singer</item>
+        <item>Christian Rivers</item>
+        <item>Bradley Cooper</item>
+        <item>Steven Caple Jr.</item>
+        <item>Travis Knight</item>
+    </string-array>
+
+    <string-array name="movie_screenplay">
+        <item>Stephen McFeely</item>
+        <item>Phil Lord</item>
+        <item>Will Beall</item>
+        <item>Eric Heisserer</item>
+        <item>Scott Rosenberg</item>
+        <item>Anthony McCarten</item>
+        <item>Peter Jackson</item>
+        <item>Eric Roth</item>
+        <item>Juel Taylor</item>
+        <item>Christina Hodson</item>
+    </string-array>
+
+    <string-array name="movie_cast_1">
+        <item>Robert Downey Jr.</item>
+        <item>Shameik Moore</item>
+        <item>Jason Momoa</item>
+        <item>Sandra Bullock</item>
+        <item>Tom Hardy</item>
+        <item>Rami Malek</item>
+        <item>Hera Hilmar</item>
+        <item>Bradley Cooper</item>
+        <item>Michael B. Jordan</item>
+        <item>Hailee Steinfeld</item>
+    </string-array>
+
+    <string-array name="movie_cast_2">
+        <item>Chris Hemsworth</item>
+        <item>Jake Johnson</item>
+        <item>Amber Heard</item>
+        <item>Trevante Rhodes</item>
+        <item>Michelle Williams</item>
+        <item>Gwilym Lee</item>
+        <item>Robert Sheehan</item>
+        <item>Lady Gaga</item>
+        <item>Sylvester Stallone</item>
+        <item>Jorge Lendeborg Jr.</item>
+    </string-array>
+
+    <string-array name="movie_cast_3">
+        <item>Chris Evans</item>
+        <item>Hailee Steinfeld</item>
+        <item>Willem Dafoe</item>
+        <item>Jacki Weaver</item>
+        <item>Riz Ahmed</item>
+        <item>Ben Hardy</item>
+        <item>Hugo Weaving</item>
+        <item>Sam Elliott</item>
+        <item>Dolph Lundgren</item>
+        <item>John Cena</item>
+    </string-array>
+
+    <array name="movie_cast_photo_1">
+        <item>@drawable/cast_avengers_1</item>
+        <item>@drawable/cast_spiderman_1</item>
+        <item>@drawable/cast_aquaman_1</item>
+        <item>@drawable/cast_birdbox_1</item>
+        <item>@drawable/cast_venom_1</item>
+        <item>@drawable/cast_bohemian_1</item>
+        <item>@drawable/cast_mortal_1</item>
+        <item>@drawable/cast_astar_1</item>
+        <item>@drawable/cast_creed_1</item>
+        <item>@drawable/cast_bumblebee_1</item>
+    </array>
+
+    <array name="movie_cast_photo_2">
+        <item>@drawable/cast_avengers_2</item>
+        <item>@drawable/cast_spiderman_2</item>
+        <item>@drawable/cast_aquaman_2</item>
+        <item>@drawable/cast_birdbox_2</item>
+        <item>@drawable/cast_venom_2</item>
+        <item>@drawable/cast_bohemian_2</item>
+        <item>@drawable/cast_mortal_2</item>
+        <item>@drawable/cast_astar_2</item>
+        <item>@drawable/cast_creed_2</item>
+        <item>@drawable/cast_bumblebee_2</item>
+    </array>
+
+    <array name="movie_cast_photo_3">
+        <item>@drawable/cast_avengers_3</item>
+        <item>@drawable/cast_spiderman_3</item>
+        <item>@drawable/cast_aquaman_3</item>
+        <item>@drawable/cast_birdbox_3</item>
+        <item>@drawable/cast_venom_3</item>
+        <item>@drawable/cast_bohemian_3</item>
+        <item>@drawable/cast_mortal_3</item>
+        <item>@drawable/cast_astar_3</item>
+        <item>@drawable/cast_creed_3</item>
+        <item>@drawable/cast_bumblebee_3</item>
+    </array>
+
+    <string-array name="movie_language">
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="movie_runtime">
+        <item>2h 29m</item>
+        <item>1h 57m</item>
+        <item>2h 24m</item>
+        <item>2h 4m</item>
+        <item>1h 52m</item>
+        <item>2h 15m</item>
+        <item>2h 9m</item>
+        <item>2h 16m</item>
+        <item>2h 10m</item>
+        <item>1h 54m</item>
+    </string-array>
+
+</resources>
