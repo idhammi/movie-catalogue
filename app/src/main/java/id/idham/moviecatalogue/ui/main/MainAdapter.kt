@@ -1,51 +1,39 @@
 package id.idham.moviecatalogue.ui.main
 
 import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import com.bumptech.glide.Glide
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import id.idham.moviecatalogue.R
-import id.idham.moviecatalogue.model.MovieModel
-import kotlinx.android.synthetic.main.item_movie.view.*
+import id.idham.moviecatalogue.ui.main.movie.MovieFragment
+import id.idham.moviecatalogue.ui.main.tvshow.TvshowFragment
 
 /**
- * Created by idhammi on 12/27/2019.
+ * Created by idhammi on 1/25/2020.
  */
 
-class MainAdapter internal constructor(private val context: Context) : BaseAdapter() {
+class MainAdapter(private val mContext: Context, fm: FragmentManager) :
+    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    internal var movies = arrayListOf<MovieModel>()
+    @StringRes
+    private val tabTitles = intArrayOf(R.string.tab_text_1, R.string.tab_text_2)
 
-    override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
-        var itemView = view
-        if (itemView == null) {
-            itemView = LayoutInflater.from(context).inflate(R.layout.item_movie, viewGroup, false)
+    override fun getItem(position: Int): Fragment {
+        var fragment: Fragment? = null
+        when (position) {
+            0 -> fragment = MovieFragment()
+            1 -> fragment = TvshowFragment()
         }
-
-        val viewHolder = ViewHolder(itemView as View)
-
-        val movie = getItem(position) as MovieModel
-        viewHolder.bind(movie)
-        return itemView
+        return fragment as Fragment
     }
 
-    override fun getItem(i: Int): Any = movies[i]
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mContext.resources.getString(tabTitles[position])
+    }
 
-    override fun getItemId(i: Int): Long = i.toLong()
-
-    override fun getCount(): Int = movies.size
-
-    inner class ViewHolder constructor(private val view: View) {
-        fun bind(movieModel: MovieModel) {
-            with(view) {
-                val name = "${movieModel.name} (${movieModel.year})"
-                txt_name.text = name
-                txt_description.text = movieModel.description
-                Glide.with(context).load(movieModel.photo).into(img_photo)
-            }
-        }
+    override fun getCount(): Int {
+        return 2
     }
 
 }

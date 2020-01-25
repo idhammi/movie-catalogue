@@ -6,11 +6,12 @@
     android:layout_height="wrap_content"
     tools:context=".ui.detail.DetailActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/lyt_detail_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,17 +23,22 @@
                 android:layout_height="180dp"
                 android:scaleType="fitXY"
                 android:src="@android:color/darker_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/txt_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_toEndOf="@id/img_photo"
                 android:text="@string/name_movies"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_photo" />
 
             <TextView
                 android:id="@+id/txt_year_rating"
@@ -42,7 +48,9 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/img_photo"
-                android:text="@string/lorem" />
+                android:text="@string/lorem"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintTop_toBottomOf="@id/txt_name" />
 
             <TextView
                 android:id="@+id/txt_director"
@@ -53,7 +61,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/img_photo"
                 android:text="@string/director"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintTop_toBottomOf="@id/txt_year_rating" />
 
             <TextView
                 android:id="@+id/txt_director_name"
@@ -63,6 +73,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/img_photo"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintTop_toBottomOf="@id/txt_director"
                 tools:text="Bambang Jiwa" />
 
             <TextView
@@ -74,7 +86,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@id/img_photo"
                 android:text="@string/screenplay"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintTop_toBottomOf="@id/txt_director_name" />
 
             <TextView
                 android:id="@+id/txt_screenplay_name"
@@ -84,39 +98,44 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/img_photo"
+                app:layout_constraintLeft_toRightOf="@id/img_photo"
+                app:layout_constraintTop_toBottomOf="@id/txt_screenplay"
                 tools:text="Bambang Jiwa" />
 
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/txt_cast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lyt_detail_info"
-            android:layout_marginStart="16dp"
-            android:text="@string/cast"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/lyt_detail_cast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_cast"
-            android:padding="16dp">
+            android:padding="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/txt_cast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/cast_movie"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/img_cast_1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="16dp"
                 android:scaleType="fitXY"
                 android:src="@android:color/darker_gray"
                 app:layout_constraintDimensionRatio="3:3.5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/img_cast_2"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_cast"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -139,13 +158,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="16dp"
                 android:scaleType="fitXY"
                 android:src="@android:color/darker_gray"
                 app:layout_constraintDimensionRatio="3:3.5"
                 app:layout_constraintLeft_toRightOf="@id/img_cast_1"
                 app:layout_constraintRight_toLeftOf="@id/img_cast_3"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_cast"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -168,13 +188,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="16dp"
                 android:scaleType="fitXY"
                 android:src="@android:color/darker_gray"
                 app:layout_constraintDimensionRatio="3:3.5"
                 app:layout_constraintLeft_toRightOf="@id/img_cast_2"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_cast"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -198,7 +219,6 @@
             android:id="@+id/txt_detail_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lyt_detail_cast"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/lorem" />
@@ -207,7 +227,6 @@
             android:id="@+id/txt_language_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_detail_description"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/language"
@@ -217,7 +236,6 @@
             android:id="@+id/txt_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_language_title"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             tools:text="English" />
@@ -226,7 +244,6 @@
             android:id="@+id/txt_runtime_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_language"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/runtime"
@@ -236,12 +253,11 @@
             android:id="@+id/txt_runtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_runtime_title"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             tools:text="2h 16m" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>

@@ -1,37 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp">
 
-    <ImageView
-        android:id="@+id/img_photo"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_toEndOf="@id/img_photo"
-        android:text="@string/name_movies"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txt_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txt_name"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/img_photo"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:text="@string/lorem" />
+        <ImageView
+            android:id="@+id/img_photo"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/img_photo"
+            android:text="@string/name_movies"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/img_photo"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@string/lorem" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

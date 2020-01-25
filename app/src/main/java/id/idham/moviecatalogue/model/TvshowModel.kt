@@ -4,18 +4,17 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 /**
- * Created by idhammi on 12/27/2019.
+ * Created by idhammi on 1/25/2020.
  */
 
 @Parcelize
-data class MovieModel(
+data class TvshowModel(
     var photo: String,
     var name: String,
     var description: String,
     var year: String,
     var rating: String,
-    var director: String,
-    var screenplay: String,
+    var creator: String,
     var cast1: String,
     var cast2: String,
     var cast3: String,
