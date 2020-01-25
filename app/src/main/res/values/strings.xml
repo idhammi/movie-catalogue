@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Movie Catalogue</string>
-    <string name="name_movies">Movie Name</string>
-    <string name="lorem">lorem ipsum dolor sit amet</string>
     <string name="year_rating">%1$s | Rating : %2$s</string>
     <string name="director">Director</string>
     <string name="screenplay">Screenplay</string>

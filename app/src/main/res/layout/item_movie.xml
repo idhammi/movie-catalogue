@@ -20,9 +20,8 @@
             android:id="@+id/img_photo"
             android:layout_width="70dp"
             android:layout_height="100dp"
-            android:background="@android:color/darker_gray"
-            android:scaleType="fitXY"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            tools:src="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/txt_name"
@@ -30,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_toEndOf="@id/img_photo"
-            android:text="@string/name_movies"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Movie Name" />
 
         <TextView
             android:id="@+id/txt_description"
@@ -44,7 +43,7 @@
             android:layout_toEndOf="@id/img_photo"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="@string/lorem" />
+            tools:text="Movie Description" />
 
     </RelativeLayout>
 
