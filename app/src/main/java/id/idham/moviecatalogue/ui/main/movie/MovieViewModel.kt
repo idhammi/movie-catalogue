@@ -20,8 +20,8 @@ class MovieViewModel(private val repository: NetworkRepository) : BaseViewModel(
 
     fun observeData(): LiveData<List<MovieModel>> = liveData
 
-    fun getData(language: String) {
-        repository.getMovies(language).onResult(
+    fun getData() {
+        repository.getMovies().onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())

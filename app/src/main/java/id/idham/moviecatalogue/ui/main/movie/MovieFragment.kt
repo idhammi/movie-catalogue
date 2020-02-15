@@ -30,7 +30,6 @@ import kotlinx.android.synthetic.main.layout_no_result.view.*
 import kotlinx.android.synthetic.main.layout_server_error.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
 
 class MovieFragment : BaseFragment() {
 
@@ -85,7 +84,6 @@ class MovieFragment : BaseFragment() {
         }
         with(viewModel) {
             observeData().onResult {
-                handleErrorMapping(null)
                 movieAdapter.setData(it)
                 rv_movie.visible()
             }
@@ -103,8 +101,8 @@ class MovieFragment : BaseFragment() {
     }
 
     private fun fetchData() {
-        if (isConnected) viewModel.getData(Locale.getDefault().toLanguageTag())
-        else setVisibilityNoInternet(true)
+        setVisibilityNoInternet(!isConnected)
+        if (isConnected) viewModel.getData()
     }
 
     private fun setupMovieDisplay(item: MovieModel, view: View) {

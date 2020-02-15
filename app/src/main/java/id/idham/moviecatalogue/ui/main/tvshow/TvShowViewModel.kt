@@ -20,8 +20,8 @@ class TvShowViewModel(private val repository: NetworkRepository) : BaseViewModel
 
     fun observeData(): LiveData<List<TvShowModel>> = liveData
 
-    fun getData(language: String) {
-        repository.getTvShows(language).onResult(
+    fun getData() {
+        repository.getTvShows().onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())

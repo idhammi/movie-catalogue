@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Movie Catalogue</string>
     <string name="language">Bahasa Asli</string>
-    <string name="tab_text_1">Film</string>
-    <string name="tab_text_2">Serial TV</string>
+    <string name="title_movies">Film</string>
+    <string name="title_tv_shows">Serial TV</string>
+    <string name="title_favorite">Favorit</string>
     <string name="change_language">Ubah Bahasa</string>
     <string name="rating">Rating</string>
     <string name="release_date">Tanggal Rilis</string>

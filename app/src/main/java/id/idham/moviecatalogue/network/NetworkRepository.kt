@@ -11,12 +11,12 @@ import io.reactivex.Single
 
 class NetworkRepository(private val service: NetworkService) {
 
-    fun getMovies(language: String): Single<List<MovieModel>> {
-        return service.getMovies(BuildConfig.API_KEY, language).map { it.getListResult() }
+    fun getMovies(): Single<List<MovieModel>> {
+        return service.getMovies(BuildConfig.API_KEY, BuildConfig.LANG).map { it.getListResult() }
     }
 
-    fun getTvShows(language: String): Single<List<TvShowModel>> {
-        return service.getTvShows(BuildConfig.API_KEY, language).map { it.getListResult() }
+    fun getTvShows(): Single<List<TvShowModel>> {
+        return service.getTvShows(BuildConfig.API_KEY, BuildConfig.LANG).map { it.getListResult() }
     }
 
 }

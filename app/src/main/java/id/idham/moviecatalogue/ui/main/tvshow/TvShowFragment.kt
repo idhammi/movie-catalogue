@@ -30,7 +30,6 @@ import kotlinx.android.synthetic.main.layout_no_result.view.*
 import kotlinx.android.synthetic.main.layout_server_error.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.*
 
 class TvShowFragment : BaseFragment() {
 
@@ -85,7 +84,6 @@ class TvShowFragment : BaseFragment() {
         }
         with(viewModel) {
             observeData().onResult {
-                handleErrorMapping(null)
                 tvShowAdapter.setData(it)
                 rv_tv_show.visible()
             }
@@ -103,8 +101,8 @@ class TvShowFragment : BaseFragment() {
     }
 
     private fun fetchData() {
-        if (isConnected) viewModel.getData(Locale.getDefault().toLanguageTag())
-        else setVisibilityNoInternet(true)
+        setVisibilityNoInternet(!isConnected)
+        if (isConnected) viewModel.getData()
     }
 
     private fun setupTvShowDisplay(item: TvShowModel, view: View) {
