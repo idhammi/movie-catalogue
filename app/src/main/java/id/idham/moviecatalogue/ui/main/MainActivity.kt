@@ -5,16 +5,17 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import id.idham.moviecatalogue.R
+import id.idham.moviecatalogue.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onSetupLayout(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
+    }
 
+    override fun onViewReady(savedInstanceState: Bundle?) {
         val adapter = MainAdapter(this, supportFragmentManager)
         view_pager.adapter = adapter
         tabs.setupWithViewPager(view_pager)

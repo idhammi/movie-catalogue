@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import id.idham.moviecatalogue.R
 import id.idham.moviecatalogue.ui.main.movie.MovieFragment
-import id.idham.moviecatalogue.ui.main.tvshow.TvshowFragment
+import id.idham.moviecatalogue.ui.main.tvshow.TvShowFragment
 
 /**
  * Created by idhammi on 1/25/2020.
@@ -23,7 +23,7 @@ class MainAdapter(private val mContext: Context, fm: FragmentManager) :
         var fragment: Fragment? = null
         when (position) {
             0 -> fragment = MovieFragment()
-            1 -> fragment = TvshowFragment()
+            1 -> fragment = TvShowFragment()
         }
         return fragment as Fragment
     }

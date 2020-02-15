@@ -42,15 +42,15 @@ class RecyclerAdapter<T : Any>(
         calculateDiff(datas)
     }
 
-    fun addData(newDatas: List<T>) {
-        val list = ArrayList(this.listData)
-        list.addAll(newDatas)
-        calculateDiff(list)
-    }
-
-    fun clearData() {
-        calculateDiff(emptyList())
-    }
+//    fun addData(newDatas: List<T>) {
+//        val list = ArrayList(this.listData)
+//        list.addAll(newDatas)
+//        calculateDiff(list)
+//    }
+//
+//    fun clearData() {
+//        calculateDiff(emptyList())
+//    }
 
     private fun calculateDiff(newDatas: List<T>) {
         diffCallback.setList(listData, newDatas)

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_no_result_found"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:src="@drawable/ic_find_in_page_black_24dp"
+            android:tint="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/tv_no_result_found"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_no_result_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="@string/msg_no_result"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_no_result_found" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

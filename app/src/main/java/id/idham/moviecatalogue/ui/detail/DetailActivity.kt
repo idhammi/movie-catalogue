@@ -1,18 +1,20 @@
 package id.idham.moviecatalogue.ui.detail
 
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import id.idham.moviecatalogue.R
 import id.idham.moviecatalogue.model.MovieModel
-import id.idham.moviecatalogue.model.TvshowModel
+import id.idham.moviecatalogue.model.TvShowModel
+import id.idham.moviecatalogue.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.item_movie.img_photo
 import kotlinx.android.synthetic.main.item_movie.txt_name
 import java.io.Serializable
+import java.util.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
 
     object IntentKey {
         const val ITEM = "DetailActivity.ITEM"
@@ -20,67 +22,63 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private lateinit var movie: MovieModel
-    private lateinit var tvshow: TvshowModel
+    private lateinit var tvShow: TvShowModel
 
     private val detailType: DetailType
         get() = intent.getSerializableExtra(IntentKey.TYPE) as DetailType
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onSetupLayout(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_detail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
+    override fun onViewReady(savedInstanceState: Bundle?) {
         if (detailType is DetailType.MOVIE) {
             movie = intent.getParcelableExtra(IntentKey.ITEM) as MovieModel
             setupMovieDisplay()
         } else {
-            tvshow = intent.getParcelableExtra(IntentKey.ITEM) as TvshowModel
-            setupTvshowDisplay()
+            tvShow = intent.getParcelableExtra(IntentKey.ITEM) as TvShowModel
+            setupTvShowDisplay()
         }
-
     }
 
     private fun setupMovieDisplay() {
-        Glide.with(this).load(movie.photo).into(img_photo)
-        txt_name.text = movie.name
-        val yearRating = resources.getString(R.string.year_rating, movie.year, movie.rating)
-        txt_year_rating.text = yearRating
-        txt_director_name.text = movie.director
-        txt_screenplay_name.text = movie.screenplay
-        Glide.with(this).load(movie.castPhoto1).into(img_cast_1)
-        Glide.with(this).load(movie.castPhoto2).into(img_cast_2)
-        Glide.with(this).load(movie.castPhoto3).into(img_cast_3)
-        txt_cast_1.text = movie.cast1
-        txt_cast_2.text = movie.cast2
-        txt_cast_3.text = movie.cast3
-        txt_detail_description.text = movie.description
-        txt_language.text = movie.language
-        txt_runtime.text = movie.runtime
+        Glide.with(this).load(movie.getPosterFullPath(size = 500))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .apply(RequestOptions().placeholder(R.color.colorGrey))
+            .apply(RequestOptions().error(R.color.colorGrey))
+            .into(img_photo)
+        txt_name.text = movie.title
+        txt_year.text = movie.getYearReleased()
+        txt_rating.text = movie.voteAverage.toString()
+        txt_language.text = getLanguageName(movie.originalLanguage)
+        txt_detail_description.text = movie.overview
+        txt_release_date.text = movie.releaseDate
     }
 
-    private fun setupTvshowDisplay() {
-        Glide.with(this).load(tvshow.photo).into(img_photo)
-        txt_name.text = tvshow.name
-        val yearRating = resources.getString(R.string.year_rating, tvshow.year, tvshow.rating)
-        txt_year_rating.text = yearRating
-        txt_director.text = getString(R.string.creator)
-        txt_director_name.text = tvshow.creator
-        txt_screenplay.visibility = View.INVISIBLE
-        txt_cast.text = getString(R.string.cast_tvshow)
-        Glide.with(this).load(tvshow.castPhoto1).into(img_cast_1)
-        Glide.with(this).load(tvshow.castPhoto2).into(img_cast_2)
-        Glide.with(this).load(tvshow.castPhoto3).into(img_cast_3)
-        txt_cast_1.text = tvshow.cast1
-        txt_cast_2.text = tvshow.cast2
-        txt_cast_3.text = tvshow.cast3
-        txt_detail_description.text = tvshow.description
-        txt_language.text = tvshow.language
-        txt_runtime.text = tvshow.runtime
+    private fun setupTvShowDisplay() {
+        Glide.with(this).load(tvShow.getPosterFullPath(size = 342))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .apply(RequestOptions().placeholder(R.color.colorGrey))
+            .apply(RequestOptions().error(R.color.colorGrey))
+            .into(img_photo)
+        txt_name.text = tvShow.name
+        txt_year.text = tvShow.getYearReleased()
+        txt_rating.text = tvShow.voteAverage.toString()
+        txt_language.text = getLanguageName(tvShow.originalLanguage)
+        txt_detail_description.text = tvShow.overview
+        txt_release_date_title.text = getString(R.string.first_air_date)
+        txt_release_date.text = tvShow.firstAirDate
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    private fun getLanguageName(lang: String): String {
+        val loc = Locale(lang)
+        return loc.getDisplayLanguage(loc)
     }
 
     sealed class DetailType : Serializable {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_server_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_server_error_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="@string/msg_server_error"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_server_error_body"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_server_error_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:text="@string/msg_server_error_desc"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_server_error_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="@string/try_again"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_server_error_body" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>
