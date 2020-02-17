@@ -1,7 +1,9 @@
 package id.idham.moviecatalogue.di
 
+import id.idham.moviecatalogue.ui.detail.DetailViewModel
 import id.idham.moviecatalogue.ui.main.movie.MovieViewModel
 import id.idham.moviecatalogue.ui.main.tvshow.TvShowViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -9,9 +11,7 @@ import org.koin.dsl.module
  */
 
 val viewModelModule = module {
-
-    single { MovieViewModel(get()) }
-
-    single { TvShowViewModel(get()) }
-
+    viewModel { MovieViewModel(get()) }
+    viewModel { TvShowViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
 }

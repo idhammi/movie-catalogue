@@ -1,7 +1,7 @@
-package id.idham.moviecatalogue.network
+package id.idham.moviecatalogue.data.network
 
-import id.idham.moviecatalogue.model.MovieResponse
-import id.idham.moviecatalogue.model.TvShowResponse
+import id.idham.moviecatalogue.data.network.response.MovieResponse
+import id.idham.moviecatalogue.data.network.response.TvShowResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

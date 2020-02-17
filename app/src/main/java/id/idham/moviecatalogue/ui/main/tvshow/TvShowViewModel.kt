@@ -2,8 +2,8 @@ package id.idham.moviecatalogue.ui.main.tvshow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import id.idham.moviecatalogue.model.TvShowModel
-import id.idham.moviecatalogue.network.NetworkRepository
+import id.idham.moviecatalogue.data.network.response.TvShowModel
+import id.idham.moviecatalogue.data.network.NetworkRepository
 import id.idham.moviecatalogue.ui.base.BaseViewModel
 
 /**

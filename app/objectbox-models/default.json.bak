@@ -1,0 +1,100 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:251580612686115629",
+      "lastPropertyId": "15:6958379489984745564",
+      "name": "MovieEntity",
+      "properties": [
+        {
+          "id": "1:4088099110383065127",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3331073599573338957",
+          "name": "popularity",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "3:5037776105479835129",
+          "name": "voteCount",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "4:195280120893931618",
+          "name": "video",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "5:4029723242329534031",
+          "name": "posterPath",
+          "type": 9
+        },
+        {
+          "id": "6:9202841630174049192",
+          "name": "adult",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "7:8292564991714018959",
+          "name": "backdropPath",
+          "type": 9
+        },
+        {
+          "id": "8:8113662582906794403",
+          "name": "originalLanguage",
+          "type": 9
+        },
+        {
+          "id": "9:336834738727584304",
+          "name": "originalTitle",
+          "type": 9
+        },
+        {
+          "id": "10:1804998428646743863",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "11:1836276204006663467",
+          "name": "voteAverage",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "12:4866502185332203140",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "13:5140825500543909060",
+          "name": "releaseDate",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:251580612686115629",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    432443776385983449,
+    6958379489984745564
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

@@ -2,6 +2,7 @@ package id.idham.moviecatalogue
 
 import android.app.Application
 import id.idham.moviecatalogue.di.applicationModule
+import id.idham.moviecatalogue.di.databaseModule
 import id.idham.moviecatalogue.di.networkModule
 import id.idham.moviecatalogue.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +18,7 @@ class MovieApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MovieApp)
-            modules(listOf(applicationModule, networkModule, viewModelModule))
+            modules(listOf(applicationModule, databaseModule, networkModule, viewModelModule))
         }
     }
 

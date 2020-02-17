@@ -1,8 +1,8 @@
-package id.idham.moviecatalogue.network
+package id.idham.moviecatalogue.data.network
 
 import id.idham.moviecatalogue.BuildConfig
-import id.idham.moviecatalogue.model.MovieModel
-import id.idham.moviecatalogue.model.TvShowModel
+import id.idham.moviecatalogue.data.network.response.MovieModel
+import id.idham.moviecatalogue.data.network.response.TvShowModel
 import io.reactivex.Single
 
 /**

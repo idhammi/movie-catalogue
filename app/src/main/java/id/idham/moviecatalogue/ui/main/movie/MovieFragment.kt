@@ -17,8 +17,8 @@ import id.idham.moviecatalogue.extension.gone
 import id.idham.moviecatalogue.extension.goneIf
 import id.idham.moviecatalogue.extension.isVisible
 import id.idham.moviecatalogue.extension.visible
-import id.idham.moviecatalogue.model.MovieModel
-import id.idham.moviecatalogue.network.NetworkError
+import id.idham.moviecatalogue.data.network.response.MovieModel
+import id.idham.moviecatalogue.data.network.NetworkError
 import id.idham.moviecatalogue.ui.base.BaseFragment
 import id.idham.moviecatalogue.ui.detail.DetailActivity
 import id.idham.moviecatalogue.ui.detail.DetailActivity.DetailType

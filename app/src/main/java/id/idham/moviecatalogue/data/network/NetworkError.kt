@@ -1,4 +1,4 @@
-package id.idham.moviecatalogue.network
+package id.idham.moviecatalogue.data.network
 
 import retrofit2.HttpException
 import java.io.IOException

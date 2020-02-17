@@ -2,8 +2,8 @@ package id.idham.moviecatalogue.di
 
 import id.idham.moviecatalogue.BuildConfig
 import id.idham.moviecatalogue.common.ConnectionLiveData
-import id.idham.moviecatalogue.network.NetworkRepository
-import id.idham.moviecatalogue.network.NetworkService
+import id.idham.moviecatalogue.data.network.NetworkRepository
+import id.idham.moviecatalogue.data.network.NetworkService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
