@@ -11,10 +11,10 @@ import io.reactivex.Single
 @Dao
 interface MovieDao {
 
-    @Query("SELECT * FROM movie")
+    @Query("SELECT * FROM Movie")
     fun getAll(): Single<List<Movie>>
 
-    @Query("SELECT * FROM movie WHERE movie_id IN (:movieId)")
+    @Query("SELECT * FROM Movie WHERE movie_id IN (:movieId)")
     fun getById(movieId: Int): Single<List<Movie>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -23,7 +23,7 @@ interface MovieDao {
     @Delete
     fun delete(movie: Movie)
 
-    @Query("DELETE FROM movie WHERE movie_id IN (:movieId)")
+    @Query("DELETE FROM Movie WHERE movie_id IN (:movieId)")
     fun deleteById(movieId: Int)
 
 }

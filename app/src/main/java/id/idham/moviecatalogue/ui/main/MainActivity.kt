@@ -18,10 +18,12 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     override fun onSetupLayout(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
+        supportActionBar?.elevation = 0f
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-        setupBottomNavigation()
+        bn_main.setOnNavigationItemSelectedListener(this)
+        if (savedInstanceState == null) loadFragment(MovieFragment())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -35,11 +37,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
             startActivity(mIntent)
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun setupBottomNavigation() {
-        bn_main.setOnNavigationItemSelectedListener(this)
-        loadFragment(MovieFragment())
     }
 
     private fun loadFragment(fragment: Fragment?): Boolean {
@@ -72,7 +69,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 if (currentFragment !is FavoriteFragment) {
                     setTitle(R.string.title_favorite)
                     fragment = FavoriteFragment()
-                    supportActionBar?.elevation = 0f
                 }
             }
         }

@@ -4,12 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import id.idham.moviecatalogue.BuildConfig
+import id.idham.moviecatalogue.data.network.response.MovieModel
 
 /**
  * Created by idhammi on 12/27/2019.
  */
 
-@Entity
+@Entity(tableName = "Movie")
 data class Movie(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "movie_id") val movieId: Int,
@@ -20,6 +21,20 @@ data class Movie(
     @ColumnInfo(name = "overview") val overview: String,
     @ColumnInfo(name = "release_date") val releaseDate: String
 ) {
+    companion object {
+        fun to(movieModel: MovieModel): Movie {
+            return Movie(
+                movieId = movieModel.id,
+                posterPath = movieModel.posterPath,
+                originalLanguage = movieModel.originalLanguage,
+                title = movieModel.title,
+                voteAverage = movieModel.voteAverage,
+                overview = movieModel.overview,
+                releaseDate = movieModel.releaseDate
+            )
+        }
+    }
+
     fun getYearReleased(): String {
         return releaseDate.take(4)
     }

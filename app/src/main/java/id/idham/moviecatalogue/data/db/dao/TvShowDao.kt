@@ -11,10 +11,10 @@ import io.reactivex.Single
 @Dao
 interface TvShowDao {
 
-    @Query("SELECT * FROM tvshow")
+    @Query("SELECT * FROM TvShow")
     fun getAll(): Single<List<TvShow>>
 
-    @Query("SELECT * FROM tvshow WHERE tv_show_id IN (:tvShowId)")
+    @Query("SELECT * FROM TvShow WHERE tv_show_id IN (:tvShowId)")
     fun getById(tvShowId: Int): Single<List<TvShow>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -23,7 +23,7 @@ interface TvShowDao {
     @Delete
     fun delete(tvShow: TvShow)
 
-    @Query("DELETE FROM tvshow WHERE tv_show_id IN (:tvShowId)")
+    @Query("DELETE FROM TvShow WHERE tv_show_id IN (:tvShowId)")
     fun deleteById(tvShowId: Int)
 
 }

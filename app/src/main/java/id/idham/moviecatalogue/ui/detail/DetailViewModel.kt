@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import id.idham.moviecatalogue.data.db.DbRepository
 import id.idham.moviecatalogue.data.db.entity.Movie
 import id.idham.moviecatalogue.data.db.entity.TvShow
+import id.idham.moviecatalogue.data.network.response.MovieModel
+import id.idham.moviecatalogue.data.network.response.TvShowModel
 import id.idham.moviecatalogue.ui.base.BaseViewModel
 import id.idham.moviecatalogue.util.ioThread
 
@@ -12,7 +14,7 @@ import id.idham.moviecatalogue.util.ioThread
  * Created by idhammi on 2/16/2020.
  */
 
-class DetailViewModel(private val dbRepository: DbRepository) : BaseViewModel() {
+class DetailViewModel(private val repository: DbRepository) : BaseViewModel() {
 
     private val liveMovieData = MutableLiveData<List<Movie>>()
     private val liveTvShowData = MutableLiveData<List<TvShow>>()
@@ -26,8 +28,9 @@ class DetailViewModel(private val dbRepository: DbRepository) : BaseViewModel() 
     fun observeTvShowData(): LiveData<List<TvShow>> = liveTvShowData
 
     fun getMovieData(movieId: Int) {
-        dbRepository.getMovieById(movieId).onResult(
+        repository.getMovieById(movieId).onResult(
             {
+                isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())
                 liveMovieData.postValue(it)
             },
@@ -38,7 +41,7 @@ class DetailViewModel(private val dbRepository: DbRepository) : BaseViewModel() 
     }
 
     fun getTvShowData(tvShowId: Int) {
-        dbRepository.getTvShowById(tvShowId).onResult(
+        repository.getTvShowById(tvShowId).onResult(
             {
                 isEmptyData.postValue(it.isEmpty())
                 liveTvShowData.postValue(it)
@@ -49,12 +52,12 @@ class DetailViewModel(private val dbRepository: DbRepository) : BaseViewModel() 
         )
     }
 
-    fun insertMovie(movie: Movie) = ioThread { dbRepository.insertMovie(movie) }
+    fun insertMovie(movieModel: MovieModel) = ioThread { repository.insertMovie(Movie.to(movieModel)) }
 
-    fun removeMovieById(movieId: Int) = ioThread { dbRepository.deleteMovieById(movieId) }
+    fun removeMovieById(movieId: Int) = ioThread { repository.deleteMovieById(movieId) }
 
-    fun insertTvShow(tvShow: TvShow) = ioThread { dbRepository.insertTvShow(tvShow) }
+    fun insertTvShow(tvShowModel: TvShowModel) = ioThread { repository.insertTvShow(TvShow.to(tvShowModel)) }
 
-    fun removeTvShowById(tvShowId: Int) = ioThread { dbRepository.deleteTvShowById(tvShowId) }
+    fun removeTvShowById(tvShowId: Int) = ioThread { repository.deleteTvShowById(tvShowId) }
 
 }

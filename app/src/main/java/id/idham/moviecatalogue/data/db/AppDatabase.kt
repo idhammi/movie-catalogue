@@ -14,7 +14,7 @@ import id.idham.moviecatalogue.data.db.entity.TvShow
  * Created by idhammi on 2/16/2020.
  */
 
-@Database(entities = [Movie::class, TvShow::class], version = DB_VERSION)
+@Database(entities = [Movie::class, TvShow::class], version = DB_VERSION, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
     abstract fun tvShowDao(): TvShowDao

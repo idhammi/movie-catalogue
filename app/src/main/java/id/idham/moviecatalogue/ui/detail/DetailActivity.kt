@@ -8,8 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import id.idham.moviecatalogue.R
-import id.idham.moviecatalogue.data.db.entity.Movie
-import id.idham.moviecatalogue.data.db.entity.TvShow
 import id.idham.moviecatalogue.data.network.response.MovieModel
 import id.idham.moviecatalogue.data.network.response.TvShowModel
 import id.idham.moviecatalogue.extension.toast
@@ -134,8 +132,8 @@ class DetailActivity : BaseActivity() {
 
     private fun addToFavorite() {
         if (detailType is DetailType.MOVIE) {
-            viewModel.insertMovie(convertToMovieEntity(movie))
-        } else viewModel.insertTvShow(convertToTvShowEntity(tvShow))
+            viewModel.insertMovie(movie)
+        } else viewModel.insertTvShow(tvShow)
         toast(getString(R.string.added_to_favorite))
     }
 
@@ -153,30 +151,6 @@ class DetailActivity : BaseActivity() {
         } else
             menuItem?.getItem(0)?.icon =
                 ContextCompat.getDrawable(this, R.drawable.ic_favorite_border_black_24dp)
-    }
-
-    private fun convertToMovieEntity(movieModel: MovieModel): Movie {
-        return Movie(
-            movieId = movieModel.id,
-            posterPath = movieModel.posterPath,
-            originalLanguage = movieModel.originalLanguage,
-            title = movieModel.title,
-            voteAverage = movieModel.voteAverage,
-            overview = movieModel.overview,
-            releaseDate = movieModel.releaseDate
-        )
-    }
-
-    private fun convertToTvShowEntity(tvShowModel: TvShowModel): TvShow {
-        return TvShow(
-            tvShowId = tvShowModel.id,
-            posterPath = tvShowModel.posterPath,
-            originalLanguage = tvShowModel.originalLanguage,
-            name = tvShowModel.name,
-            voteAverage = tvShowModel.voteAverage,
-            overview = tvShowModel.overview,
-            firstAirDate = tvShowModel.firstAirDate
-        )
     }
 
 }
