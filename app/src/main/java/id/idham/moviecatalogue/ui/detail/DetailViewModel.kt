@@ -2,7 +2,7 @@ package id.idham.moviecatalogue.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import id.idham.moviecatalogue.data.db.DbRepository
+import id.idham.moviecatalogue.data.DataManager
 import id.idham.moviecatalogue.data.db.entity.Movie
 import id.idham.moviecatalogue.data.db.entity.TvShow
 import id.idham.moviecatalogue.data.network.response.MovieModel
@@ -14,7 +14,7 @@ import id.idham.moviecatalogue.util.ioThread
  * Created by idhammi on 2/16/2020.
  */
 
-class DetailViewModel(private val repository: DbRepository) : BaseViewModel() {
+class DetailViewModel(private val dataManager: DataManager) : BaseViewModel() {
 
     private val liveMovieData = MutableLiveData<List<Movie>>()
     private val liveTvShowData = MutableLiveData<List<TvShow>>()
@@ -28,7 +28,7 @@ class DetailViewModel(private val repository: DbRepository) : BaseViewModel() {
     fun observeTvShowData(): LiveData<List<TvShow>> = liveTvShowData
 
     fun getMovieData(movieId: Int) {
-        repository.getMovieById(movieId).onResult(
+        dataManager.getMovieById(movieId).onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())
@@ -41,7 +41,7 @@ class DetailViewModel(private val repository: DbRepository) : BaseViewModel() {
     }
 
     fun getTvShowData(tvShowId: Int) {
-        repository.getTvShowById(tvShowId).onResult(
+        dataManager.getTvShowById(tvShowId).onResult(
             {
                 isEmptyData.postValue(it.isEmpty())
                 liveTvShowData.postValue(it)
@@ -52,12 +52,14 @@ class DetailViewModel(private val repository: DbRepository) : BaseViewModel() {
         )
     }
 
-    fun insertMovie(movieModel: MovieModel) = ioThread { repository.insertMovie(Movie.to(movieModel)) }
+    fun insertMovie(movieModel: MovieModel) =
+        ioThread { dataManager.insertMovie(Movie.to(movieModel)) }
 
-    fun removeMovieById(movieId: Int) = ioThread { repository.deleteMovieById(movieId) }
+    fun removeMovieById(movieId: Int) = ioThread { dataManager.deleteMovieById(movieId) }
 
-    fun insertTvShow(tvShowModel: TvShowModel) = ioThread { repository.insertTvShow(TvShow.to(tvShowModel)) }
+    fun insertTvShow(tvShowModel: TvShowModel) =
+        ioThread { dataManager.insertTvShow(TvShow.to(tvShowModel)) }
 
-    fun removeTvShowById(tvShowId: Int) = ioThread { repository.deleteTvShowById(tvShowId) }
+    fun removeTvShowById(tvShowId: Int) = ioThread { dataManager.deleteTvShowById(tvShowId) }
 
 }

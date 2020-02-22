@@ -1,7 +1,7 @@
 package id.idham.moviecatalogue.di
 
 import id.idham.moviecatalogue.data.db.AppDatabase
-import id.idham.moviecatalogue.data.db.DbRepository
+import id.idham.moviecatalogue.data.db.DbHelper
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -13,5 +13,5 @@ val databaseModule = module {
     single { AppDatabase.getInstance(androidApplication()) }
     single { get<AppDatabase>().movieDao() }
     single { get<AppDatabase>().tvShowDao() }
-    single { DbRepository(get(), get()) }
+    single { DbHelper(get(), get()) }
 }

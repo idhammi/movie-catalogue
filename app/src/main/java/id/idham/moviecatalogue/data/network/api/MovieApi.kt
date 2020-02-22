@@ -1,4 +1,4 @@
-package id.idham.moviecatalogue.data.network
+package id.idham.moviecatalogue.data.network.api
 
 import id.idham.moviecatalogue.data.network.response.MovieResponse
 import id.idham.moviecatalogue.data.network.response.TvShowResponse
@@ -10,7 +10,7 @@ import retrofit2.http.Query
  * Created by idhammi on 2/7/2020.
  */
 
-interface NetworkService {
+interface MovieApi {
 
     @GET("discover/movie")
     fun getMovies(@Query("api_key") apiKey: String, @Query("language") language: String)

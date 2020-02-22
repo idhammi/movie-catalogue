@@ -10,7 +10,7 @@ import io.reactivex.Single
  * Created by idhammi on 2/7/2020.
  */
 
-class DbRepository(private val movieDao: MovieDao, private val tvShowDao: TvShowDao) {
+class DbHelper(private val movieDao: MovieDao, private val tvShowDao: TvShowDao) {
 
     fun getAllMovie(): Single<List<Movie>> {
         return movieDao.getAll()
