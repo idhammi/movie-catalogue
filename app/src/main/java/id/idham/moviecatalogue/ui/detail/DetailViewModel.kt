@@ -28,7 +28,7 @@ class DetailViewModel(private val dataManager: DataManager) : BaseViewModel() {
     fun observeTvShowData(): LiveData<List<TvShow>> = liveTvShowData
 
     fun getMovieData(movieId: Int) {
-        dataManager.getMovieById(movieId).onResult(
+        dataManager.getFavoriteMovieById(movieId).onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())
@@ -41,7 +41,7 @@ class DetailViewModel(private val dataManager: DataManager) : BaseViewModel() {
     }
 
     fun getTvShowData(tvShowId: Int) {
-        dataManager.getTvShowById(tvShowId).onResult(
+        dataManager.getFavoriteTvShowById(tvShowId).onResult(
             {
                 isEmptyData.postValue(it.isEmpty())
                 liveTvShowData.postValue(it)
@@ -53,13 +53,13 @@ class DetailViewModel(private val dataManager: DataManager) : BaseViewModel() {
     }
 
     fun insertMovie(movieModel: MovieModel) =
-        ioThread { dataManager.insertMovie(Movie.to(movieModel)) }
+        ioThread { dataManager.insertFavoriteMovie(Movie.to(movieModel)) }
 
-    fun removeMovieById(movieId: Int) = ioThread { dataManager.deleteMovieById(movieId) }
+    fun removeMovieById(movieId: Int) = ioThread { dataManager.deleteFavoriteMovieById(movieId) }
 
     fun insertTvShow(tvShowModel: TvShowModel) =
-        ioThread { dataManager.insertTvShow(TvShow.to(tvShowModel)) }
+        ioThread { dataManager.insertFavoriteTvShow(TvShow.to(tvShowModel)) }
 
-    fun removeTvShowById(tvShowId: Int) = ioThread { dataManager.deleteTvShowById(tvShowId) }
+    fun removeTvShowById(tvShowId: Int) = ioThread { dataManager.deleteFavoriteTvShowById(tvShowId) }
 
 }

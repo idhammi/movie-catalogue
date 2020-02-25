@@ -16,8 +16,29 @@ interface MovieApi {
     fun getMovies(@Query("api_key") apiKey: String, @Query("language") language: String)
             : Single<MovieResponse>
 
+    @GET("discover/movie")
+    fun getMoviesByQuery(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): Single<MovieResponse>
+
+    @GET("discover/movie")
+    fun getMoviesByDate(
+        @Query("api_key") apiKey: String,
+        @Query("primary_release_date.gte") dateGte: String,
+        @Query("primary_release_date.lte") dateLte: String
+    ): Single<MovieResponse>
+
     @GET("discover/tv")
     fun getTvShows(@Query("api_key") apiKey: String, @Query("language") language: String)
             : Single<TvShowResponse>
+
+    @GET("discover/tv")
+    fun getTvShowsByQuery(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): Single<TvShowResponse>
 
 }

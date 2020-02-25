@@ -21,7 +21,7 @@ class FavoriteTvShowViewModel(private val dataManager: DataManager) : BaseViewMo
     fun observeData(): LiveData<List<TvShow>> = liveData
 
     fun getData() {
-        dataManager.getAllTvShow().onResult(
+        dataManager.getFavoriteTvShow().onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())

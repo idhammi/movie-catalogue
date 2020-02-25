@@ -21,7 +21,7 @@ class FavoriteMovieViewModel(private val dataManager: DataManager) : BaseViewMod
     fun observeData(): LiveData<List<Movie>> = liveData
 
     fun getData() {
-        dataManager.getAllMovie().onResult(
+        dataManager.getFavoriteMovie().onResult(
             {
                 isError.postValue(null)
                 isEmptyData.postValue(it.isEmpty())

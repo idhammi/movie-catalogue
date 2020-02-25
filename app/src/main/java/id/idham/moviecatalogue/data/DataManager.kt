@@ -14,52 +14,56 @@ import io.reactivex.Single
 
 class DataManager(private val dbHelper: DbHelper, private val networkHelper: NetworkHelper) {
 
-    fun getAllMovie(): Single<List<Movie>> {
-        return dbHelper.getAllMovie()
-    }
-
-    fun getMovieById(movieId: Int): Single<List<Movie>> {
-        return dbHelper.getMovieById(movieId)
-    }
-
-    fun insertMovie(movie: Movie) {
-        dbHelper.insertMovie(movie)
-    }
-
-    fun deleteMovie(movie: Movie) {
-        dbHelper.deleteMovie(movie)
-    }
-
-    fun deleteMovieById(movieId: Int) {
-        dbHelper.deleteMovieById(movieId)
-    }
-
-    fun getAllTvShow(): Single<List<TvShow>> {
-        return dbHelper.getAllTvShow()
-    }
-
-    fun getTvShowById(tvShowId: Int): Single<List<TvShow>> {
-        return dbHelper.getTvShowById(tvShowId)
-    }
-
-    fun insertTvShow(tvShow: TvShow) {
-        dbHelper.insertTvShow(tvShow)
-    }
-
-    fun deleteTvShow(tvShow: TvShow) {
-        dbHelper.deleteTvShow(tvShow)
-    }
-
-    fun deleteTvShowById(tvShowId: Int) {
-        dbHelper.deleteTvShowById(tvShowId)
-    }
-
     fun getMovies(): Single<List<MovieModel>> {
         return networkHelper.getMovies()
     }
 
+    fun getMoviesByQuery(query: String): Single<List<MovieModel>> {
+        return networkHelper.getMoviesByQuery(query)
+    }
+
+    fun getMoviesByDate(date: String): Single<List<MovieModel>> {
+        return networkHelper.getMoviesByDate(date)
+    }
+
     fun getTvShows(): Single<List<TvShowModel>> {
         return networkHelper.getTvShows()
+    }
+
+    fun getTvShowsByQuery(query: String): Single<List<TvShowModel>> {
+        return networkHelper.getTvShowsByQuery(query)
+    }
+
+    fun getFavoriteMovie(): Single<List<Movie>> {
+        return dbHelper.getMovie()
+    }
+
+    fun getFavoriteMovieById(movieId: Int): Single<List<Movie>> {
+        return dbHelper.getMovieById(movieId)
+    }
+
+    fun insertFavoriteMovie(movie: Movie) {
+        dbHelper.insertMovie(movie)
+    }
+
+    fun deleteFavoriteMovieById(movieId: Int) {
+        dbHelper.deleteMovieById(movieId)
+    }
+
+    fun getFavoriteTvShow(): Single<List<TvShow>> {
+        return dbHelper.getTvShow()
+    }
+
+    fun getFavoriteTvShowById(tvShowId: Int): Single<List<TvShow>> {
+        return dbHelper.getTvShowById(tvShowId)
+    }
+
+    fun insertFavoriteTvShow(tvShow: TvShow) {
+        dbHelper.insertTvShow(tvShow)
+    }
+
+    fun deleteFavoriteTvShowById(tvShowId: Int) {
+        dbHelper.deleteTvShowById(tvShowId)
     }
 
 }

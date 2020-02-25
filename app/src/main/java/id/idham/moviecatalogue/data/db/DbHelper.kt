@@ -12,7 +12,7 @@ import io.reactivex.Single
 
 class DbHelper(private val movieDao: MovieDao, private val tvShowDao: TvShowDao) {
 
-    fun getAllMovie(): Single<List<Movie>> {
+    fun getMovie(): Single<List<Movie>> {
         return movieDao.getAll()
     }
 
@@ -24,15 +24,11 @@ class DbHelper(private val movieDao: MovieDao, private val tvShowDao: TvShowDao)
         movieDao.insert(movie)
     }
 
-    fun deleteMovie(movie: Movie) {
-        movieDao.delete(movie)
-    }
-
     fun deleteMovieById(movieId: Int) {
         movieDao.deleteById(movieId)
     }
 
-    fun getAllTvShow(): Single<List<TvShow>> {
+    fun getTvShow(): Single<List<TvShow>> {
         return tvShowDao.getAll()
     }
 
@@ -42,10 +38,6 @@ class DbHelper(private val movieDao: MovieDao, private val tvShowDao: TvShowDao)
 
     fun insertTvShow(tvShow: TvShow) {
         tvShowDao.insert(tvShow)
-    }
-
-    fun deleteTvShow(tvShow: TvShow) {
-        tvShowDao.delete(tvShow)
     }
 
     fun deleteTvShowById(tvShowId: Int) {
