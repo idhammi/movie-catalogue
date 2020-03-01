@@ -16,7 +16,7 @@ interface MovieApi {
     fun getMovies(@Query("api_key") apiKey: String, @Query("language") language: String)
             : Single<MovieResponse>
 
-    @GET("discover/movie")
+    @GET("search/movie")
     fun getMoviesByQuery(
         @Query("api_key") apiKey: String,
         @Query("language") language: String,
@@ -34,7 +34,7 @@ interface MovieApi {
     fun getTvShows(@Query("api_key") apiKey: String, @Query("language") language: String)
             : Single<TvShowResponse>
 
-    @GET("discover/tv")
+    @GET("search/tv")
     fun getTvShowsByQuery(
         @Query("api_key") apiKey: String,
         @Query("language") language: String,

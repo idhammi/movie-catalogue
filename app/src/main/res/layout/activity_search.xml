@@ -34,9 +34,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/app_bar_search"
-        android:paddingTop="16dp" />
+        android:clipToPadding="false"
+        android:paddingBottom="36dp"
+        tools:listitem="@layout/item_movie" />
 
     <ProgressBar
         android:id="@+id/pb_search"
@@ -45,5 +47,11 @@
         android:layout_below="@+id/app_bar_search"
         android:padding="16dp"
         android:visibility="gone" />
+
+    <include layout="@layout/layout_no_result" />
+
+    <include layout="@layout/layout_server_error" />
+
+    <include layout="@layout/layout_no_internet_error" />
 
 </RelativeLayout>

@@ -38,6 +38,10 @@ class DataManager(private val dbHelper: DbHelper, private val networkHelper: Net
         return dbHelper.getMovie()
     }
 
+    fun getFavoriteMovieList(): List<Movie> {
+        return dbHelper.getMovieList()
+    }
+
     fun getFavoriteMovieById(movieId: Int): Single<List<Movie>> {
         return dbHelper.getMovieById(movieId)
     }

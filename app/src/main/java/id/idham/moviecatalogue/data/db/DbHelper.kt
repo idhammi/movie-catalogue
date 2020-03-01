@@ -16,6 +16,10 @@ class DbHelper(private val movieDao: MovieDao, private val tvShowDao: TvShowDao)
         return movieDao.getAll()
     }
 
+    fun getMovieList(): List<Movie> {
+        return movieDao.getAllList()
+    }
+
     fun getMovieById(movieId: Int): Single<List<Movie>> {
         return movieDao.getById(movieId)
     }

@@ -1,5 +1,7 @@
 package id.idham.moviecatalogue.ui.detail
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,6 +14,7 @@ import id.idham.moviecatalogue.data.network.response.MovieModel
 import id.idham.moviecatalogue.data.network.response.TvShowModel
 import id.idham.moviecatalogue.extension.toast
 import id.idham.moviecatalogue.ui.base.BaseActivity
+import id.idham.moviecatalogue.widget.FavoriteWidget
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.item_movie.img_photo
 import kotlinx.android.synthetic.main.item_movie.txt_name
@@ -90,6 +93,13 @@ class DetailActivity : BaseActivity() {
                 if (isFavorite) removeFromFavorite() else addToFavorite()
                 isFavorite = !isFavorite
                 setFavorite()
+
+                // update widget
+                val appWidgetManager = AppWidgetManager.getInstance(this)
+                val appWidgetIds = appWidgetManager.getAppWidgetIds(
+                    ComponentName(this, FavoriteWidget::class.java)
+                )
+                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.stack_view)
             }
             android.R.id.home -> onBackPressed()
         }

@@ -17,9 +17,9 @@
     <string name="msg_server_error">Server Error</string>
     <string name="msg_server_error_desc">Sorry, our server has a problem, please try again later..</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="added_to_favorite">Added to favorite</string>
     <string name="removed_from_favorite">Removed from favorite</string>
     <string name="search">Search</string>
+    <string name="appwidget_text">Favorite Movie</string>
+    <string name="empty_text">No data</string>
 </resources>

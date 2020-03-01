@@ -6,6 +6,7 @@ import id.idham.moviecatalogue.data.DataManager
 import id.idham.moviecatalogue.data.network.response.MovieModel
 import id.idham.moviecatalogue.data.network.response.TvShowModel
 import id.idham.moviecatalogue.ui.base.BaseViewModel
+import id.idham.moviecatalogue.util.toSingleEvent
 
 /**
  * Created by idhammi on 2/25/2020.
@@ -14,15 +15,18 @@ import id.idham.moviecatalogue.ui.base.BaseViewModel
 class SearchViewModel(private val dataManager: DataManager) : BaseViewModel() {
 
     private val liveDataMovie = MutableLiveData<List<MovieModel>>()
+    private val singleDataMovie = liveDataMovie.toSingleEvent()
+
     private val liveDataTvShow = MutableLiveData<List<TvShowModel>>()
+    private val singleDataTvShow = liveDataTvShow.toSingleEvent()
 
     init {
         liveDataMovie.value = listOf()
         liveDataTvShow.value = listOf()
     }
 
-    fun observeMovie(): LiveData<List<MovieModel>> = liveDataMovie
-    fun observeTvShow(): LiveData<List<TvShowModel>> = liveDataTvShow
+    fun observeMovie(): LiveData<List<MovieModel>> = singleDataMovie
+    fun observeTvShow(): LiveData<List<TvShowModel>> = singleDataTvShow
 
     fun getMovie(query: String) {
         dataManager.getMoviesByQuery(query).onResult(

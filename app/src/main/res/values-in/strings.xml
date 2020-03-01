@@ -16,4 +16,10 @@
     <string name="msg_no_result">Tidak ada hasil</string>
     <string name="msg_server_error">Server Error</string>
     <string name="msg_server_error_desc">Mohon maaf, server kami sedang bermasalah, silahkan coba lagi nanti..</string>
+
+    <string name="added_to_favorite">Ditambahkan ke favorit</string>
+    <string name="removed_from_favorite">Dihapus dari favorit</string>
+    <string name="search">Cari</string>
+    <string name="appwidget_text">Film Favorit</string>
+    <string name="empty_text">Tidak ada data</string>
 </resources>

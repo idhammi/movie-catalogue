@@ -14,6 +14,9 @@ interface MovieDao {
     @Query("SELECT * FROM Movie")
     fun getAll(): Single<List<Movie>>
 
+    @Query("SELECT * FROM Movie")
+    fun getAllList(): List<Movie>
+
     @Query("SELECT * FROM Movie WHERE movie_id IN (:movieId)")
     fun getById(movieId: Int): Single<List<Movie>>
 
