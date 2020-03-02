@@ -1,7 +1,8 @@
-package id.idham.moviecatalogue.widget
+package id.idham.moviecatalogue.service
 
 import android.content.Intent
 import android.widget.RemoteViewsService
+import id.idham.moviecatalogue.widget.StackRemoteViewsFactory
 import org.koin.android.ext.android.inject
 
 /**

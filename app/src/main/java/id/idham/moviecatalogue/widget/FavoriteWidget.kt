@@ -9,6 +9,7 @@ import android.widget.RemoteViews
 import androidx.core.net.toUri
 import id.idham.moviecatalogue.R
 import id.idham.moviecatalogue.extension.toast
+import id.idham.moviecatalogue.service.StackWidgetService
 
 /**
  * Implementation of App Widget functionality.

@@ -4,6 +4,8 @@
     package="id.idham.moviecatalogue">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".MovieApp"
@@ -14,6 +16,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/settings" />
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:label="@string/detail_movie" />
+        <activity android:name=".ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".service.ReminderReceiver"
+            android:enabled="true"
+            android:exported="true" />
         <receiver android:name=".widget.FavoriteWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -25,23 +49,9 @@
         </receiver>
 
         <service
-            android:name=".widget.StackWidgetService"
+            android:name=".service.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <activity
-            android:name=".ui.search.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".ui.detail.DetailActivity"
-            android:label="Detail Movie" />
-        <activity android:name=".ui.main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

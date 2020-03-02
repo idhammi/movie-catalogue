@@ -22,4 +22,16 @@
     <string name="search">Cari</string>
     <string name="appwidget_text">Film Favorit</string>
     <string name="empty_text">Tidak ada data</string>
+
+    <string name="key_release">release</string>
+    <string name="key_daily">daily</string>
+    <string name="key_lang">lang</string>
+    <string name="release_reminder">Pengingat Rilis</string>
+    <string name="release_reminder_summary">Tampilkan pengingat film yang rilis hari ini</string>
+    <string name="daily_reminder">Pengingat setiap hari</string>
+    <string name="daily_reminder_summary">Pengingat untuk membuka aplikasi</string>
+    <string name="alarm_released">Film baru rilis hari ini!</string>
+    <string name="alarm_daily">Cek film sekarang!</string>
+    <string name="settings">Pengaturan</string>
+    <string name="detail_movie">Detail Film</string>
 </resources>
