@@ -1,5 +1,6 @@
 package id.idham.moviecatalogue.data.db.dao
 
+import android.database.Cursor
 import androidx.room.*
 import id.idham.moviecatalogue.data.db.entity.Movie
 import io.reactivex.Single
@@ -11,13 +12,16 @@ import io.reactivex.Single
 @Dao
 interface MovieDao {
 
-    @Query("SELECT * FROM Movie")
+    @Query("SELECT * FROM ${Movie.TABLE_NAME}")
     fun getAll(): Single<List<Movie>>
 
-    @Query("SELECT * FROM Movie")
+    @Query("SELECT * FROM ${Movie.TABLE_NAME}")
     fun getAllList(): List<Movie>
 
-    @Query("SELECT * FROM Movie WHERE movie_id IN (:movieId)")
+    @Query("SELECT * FROM ${Movie.TABLE_NAME}")
+    fun getAllCursor(): Cursor
+
+    @Query("SELECT * FROM ${Movie.TABLE_NAME} WHERE movie_id IN (:movieId)")
     fun getById(movieId: Int): Single<List<Movie>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -26,7 +30,7 @@ interface MovieDao {
     @Delete
     fun delete(movie: Movie)
 
-    @Query("DELETE FROM Movie WHERE movie_id IN (:movieId)")
+    @Query("DELETE FROM ${Movie.TABLE_NAME} WHERE movie_id IN (:movieId)")
     fun deleteById(movieId: Int)
 
 }

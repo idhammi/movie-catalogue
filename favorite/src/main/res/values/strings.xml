@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movie Favorite</string>
+    <string name="msg_no_result">No Result Found</string>
+    <string name="rating">Rating</string>
+    <string name="release_date">Release Date</string>
+    <string name="movie_poster">Movie Poster</string>
+    <string name="language">Original Language</string>
+</resources>

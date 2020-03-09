@@ -1,4 +1,4 @@
-package id.idham.moviecatalogue.common
+package id.idham.moviefavorite.common
 
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +38,14 @@ class RecyclerAdapter<T : Any>(
 
     override fun getItemCount(): Int = listData.size
 
-    fun setData(datas: List<T>) {
-        calculateDiff(datas)
+    fun addData(newDatas: List<T>) {
+        val list = ArrayList(this.listData)
+        list.addAll(newDatas)
+        calculateDiff(list)
+    }
+
+    fun clearData() {
+        calculateDiff(emptyList())
     }
 
     private fun calculateDiff(newDatas: List<T>) {
